@@ -17,7 +17,7 @@
         android:layout_centerInParent="true"
         android:onClick="onClick"
         android:padding="25dp"
-        android:text="发送数据"
+        android:text="初始化"
         android:textSize="22sp" />
     <Button
         android:id="@+id/btn_send2"
@@ -28,7 +28,30 @@
         android:layout_toRightOf="@id/btn_send"
         android:layout_toEndOf="@id/btn_send"
         android:padding="25dp"
-        android:text="发送数据List"
+        android:text="添加菜单"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/btn_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:onClick="onClick"
+        android:layout_toLeftOf="@id/btn_send"
+        android:layout_toStartOf="@id/btn_send"
+        android:padding="25dp"
+        android:text="支付"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/btn_send"
+        android:onClick="onClick"
+        android:padding="25dp"
+        android:text="清空菜单栏"
         android:textSize="22sp" />
 
 </RelativeLayout>

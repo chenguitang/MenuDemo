@@ -1,4 +1,4 @@
-package com.posin.menudevices;
+package com.posin.menudevices.constant;
 
 import android.annotation.SuppressLint;
 import android.os.Parcel;
@@ -12,18 +12,28 @@ import android.os.Parcelable;
 @SuppressLint("ParcelCreator")
 public class Dishes implements Parcelable {
 
-    private String name;
+    //菜名
+    private String dishName;
+    //数量
+    private int amount;
+    //单价
     private double prices;
+    //小计
+    private double subtotal;
 
-    public Dishes(String name, double prices) {
-        this.name = name;
+    public Dishes(String dishName, int amount, double prices, double subtotal) {
+        this.dishName = dishName;
+        this.amount = amount;
         this.prices = prices;
+        this.subtotal = subtotal;
     }
 
     //从Parcel中读出之前写进的数据
     protected Dishes(Parcel in) {
-        this.name = in.readString();
+        this.dishName = in.readString();
+        this.amount=in.readInt();
         this.prices = in.readDouble();
+        this.subtotal = in.readDouble();
     }
 
     public static final Creator<Dishes> CREATOR = new Creator<Dishes>() {
@@ -39,12 +49,20 @@ public class Dishes implements Parcelable {
         }
     };
 
-    public String getName() {
-        return name;
+    public String getDishName() {
+        return dishName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDishName(String dishName) {
+        this.dishName = dishName;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public double getPrices() {
@@ -53,6 +71,14 @@ public class Dishes implements Parcelable {
 
     public void setPrices(double prices) {
         this.prices = prices;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
     }
 
     //实现 Parcelable 接口所需重写的方法1，一般不用管
@@ -64,15 +90,19 @@ public class Dishes implements Parcelable {
     //实现 Parcelable 接口所需重写的方法2，将对象的每个字段写入到Parcel中
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
+        dest.writeString(dishName);
+        dest.writeInt(amount);
         dest.writeDouble(prices);
+        dest.writeDouble(subtotal);
     }
 
     @Override
     public String toString() {
         return "Dishes{" +
-                "name='" + name + '\'' +
+                "dishName='" + dishName + '\'' +
+                ", amount=" + amount +
                 ", prices=" + prices +
+                ", subtotal=" + subtotal +
                 '}';
     }
 }
