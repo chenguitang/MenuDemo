@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.posin.menudevices.Dishes;
 import com.posin.menudevices.IMenuManage;
 
 import java.util.ArrayList;
@@ -35,19 +36,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_send:
                 try {
 //                    mMenuManage.setMenu("黄焖鸡鸭狗1354654...");
-                    LinkedHashMap<String, String> menuMaps = new LinkedHashMap<>();
+//                    LinkedHashMap<String, String> menuMaps = new LinkedHashMap<>();
+//
+//                    menuMaps.put("greetty1", "lajdfljdaf");
+//                    menuMaps.put("greetty2", "哈哈哈哈");
+//                    menuMaps.put("greetty3", "7777777777777");
+//                    menuMaps.put("greetty4", "测试hashMap，....");
+//                    mMenuManage.setMenuMap(menuMaps);
 
-                    menuMaps.put("greetty1", "lajdfljdaf");
-                    menuMaps.put("greetty2", "哈哈哈哈");
-                    menuMaps.put("greetty3", "7777777777777");
-                    menuMaps.put("greetty4", "测试hashMap，....");
 
+                    mMenuManage.sendDish(new Dishes("清蒸罗非鱼",88.88));
 
-                    for (String key : menuMaps.keySet()) {
-                        Log.e(TAG, "key: " + key);
-                    }
-
-                    mMenuManage.setMenuMap(menuMaps);
 
                 } catch (RemoteException e) {
                     e.printStackTrace();
