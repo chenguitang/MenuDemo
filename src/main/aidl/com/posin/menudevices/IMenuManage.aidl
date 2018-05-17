@@ -14,4 +14,6 @@ interface IMenuManage {
      void setMenu(String name);
 
      String setListMenuList(in List<String> listNames);
+
+    void setMenuMap(in Map menuMaps);
 }
