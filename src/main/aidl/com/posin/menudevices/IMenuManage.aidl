@@ -10,6 +10,8 @@ interface IMenuManage {
      */
     void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
             double aDouble, String aString);
-            
+
      void setMenu(String name);
+
+     String setListMenuList(in List<String> listNames);
 }

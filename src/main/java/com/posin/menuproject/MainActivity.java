@@ -7,12 +7,18 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.posin.menudevices.IMenuManage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     private IMenuManage mMenuManage;
 
     @Override
@@ -28,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_send:
                 try {
                     mMenuManage.setMenu("黄焖鸡鸭狗1354654...");
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case R.id.btn_send2:
+                try {
+
+                    ArrayList<String> list = new ArrayList<>();
+                    list.add("Greetty");
+                    list.add("陈贵堂");
+                    list.add("拉到就发了点击");
+                    list.add("我是逗比");
+                    String returnName = mMenuManage.setListMenuList(list);
+                    Log.e(TAG, "return name is: "+returnName);
+
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
